@@ -1,5 +1,4 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 void main() {
 
     //Pido el numero de incrementos por Scanner
@@ -31,5 +30,20 @@ void main() {
     System.out.println("Incrementos por hebra: " + incrementos);
     System.out.println("Valor esperado       : " + (2 * incrementos));
     System.out.println("Valor final de v     : " + variableCompartida.get());
+
+    //JUSTIFICACIÓN DE RESULTADO
+
+    /*
+     El resultado falla porque inc() contiene la operacion v++ que no es atómica.
+     Primero lee, luego suma y luego escribe. Son tres pasos.
+
+     Cuando ingresas un numero de incrementos bajo como 10, los resultados coinciden.
+     A partir de 1000 es muy poco probable que coincidan resultados.
+        Eso se debe a que cuanto más grande es la suma, más tarda en realizarse y da tiempo a que el otro hilo acceda al valor antes de modificarlo
+        y se pierden incrementos
+
+        */
+
+
 
 }
