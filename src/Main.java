@@ -26,6 +26,7 @@ void main() {
        throw new RuntimeException(e);
    }
 
+sc.close();
 
     System.out.println("Incrementos por hebra: " + incrementos);
     System.out.println("Valor esperado       : " + (2 * incrementos));
